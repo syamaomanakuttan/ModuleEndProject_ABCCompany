@@ -1,9 +1,9 @@
 **Explanation:**
 
-_Preprocessing_
+_Preprocessing._
 This code will load the dataset from the provided URL, replace the "height" column with random numbers between 150 and 180, and then display the initial and corrected dataframes.
 
-_Determine the distribution of employees_
+_Determine the distribution of employees._
 This code will calculate the distribution of employees across each team and the percentage split relative to the total number of employees in the dataset. It then prints out these results.
 
 _Segregate employees based on their positions within the company._
