@@ -23,6 +23,8 @@ print(df.head())
 height_column = df['height']
 print(height_column)
 
+print(df.columns)
+
 # 1. Calculate the distribution of employees across each team
 team_distribution = df['Team'].value_counts()
 
