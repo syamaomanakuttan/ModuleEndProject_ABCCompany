@@ -24,7 +24,7 @@ height_column = df['height']
 print(height_column)
 
 # 1. Calculate the distribution of employees across each team
-team_distribution = df['team'].value_counts()
+team_distribution = df['Team'].value_counts()
 
 # Calculate the percentage split relative to the total number of employees
 total_employees = len(df)
@@ -37,7 +37,7 @@ print("\nPercentage Split Relative to Total Number of Employees:")
 print(percentage_split)
 
 # 2. Segregate employees based on their positions
-employees_by_position = df.groupby('position')
+employees_by_position = df.groupby('Position')
 
 # Display the number of employees in each position
 for position, employees in employees_by_position:
@@ -47,7 +47,7 @@ for position, employees in employees_by_position:
 age_bins = [20, 30, 40, 50, 60, 70]  # You can adjust the age ranges as needed
 
 # Create age groups
-age_groups = pd.cut(df['age'], bins=age_bins)
+age_groups = pd.cut(df['Age'], bins=age_bins)
 
 # Count the number of employees in each age group
 age_group_counts = age_groups.value_counts()
@@ -61,10 +61,10 @@ print(age_group_counts)
 print("\nPredominant Age Group:", predominant_age_group)
 
 # Group the data by team and calculate the total salary expenditure for each team
-team_salary_expenditure = df.groupby('team')['salary'].sum()
+team_salary_expenditure = df.groupby('Team')['Salary'].sum()
 
 # 4. Group the data by position and calculate the total salary expenditure for each position
-position_salary_expenditure = df.groupby('position')['salary'].sum()
+position_salary_expenditure = df.groupby('Position')['Salary'].sum()
 
 # Discover which team and position have the highest salary expenditure
 team_highest_salary = team_salary_expenditure.idxmax()
@@ -76,7 +76,7 @@ print("Position with the Highest Salary Expenditure:", position_highest_salary)
 
 # 5. Plot the correlation between age and salary
 plt.figure(figsize=(10, 6))
-sns.scatterplot(x='age', y='salary', data=df)
+sns.scatterplot(x='Age', y='Salary', data=df)
 plt.title('Correlation between Age and Salary')
 plt.xlabel('Age')
 plt.ylabel('Salary')

@@ -9,7 +9,7 @@ data = pd.read_csv(url)
 
 # Plot the distribution of employees across each team
 plt.figure(figsize=(10, 6))
-data['team'].value_counts().plot(kind='bar', color='skyblue')
+data['Team'].value_counts().plot(kind='bar', color='skyblue')
 plt.title('Distribution of Employees Across Each Team')
 plt.xlabel('Team')
 plt.ylabel('Number of Employees')
@@ -19,7 +19,7 @@ plt.show()
 ###################################################################################
 # Plot the segregation of employees based on positions
 plt.figure(figsize=(10, 6))
-data['position'].value_counts().plot(kind='pie', autopct='%1.1f%%', colors=['lightblue', 'lightgreen', 'lightcoral', 'lightsalmon'])
+data['Position'].value_counts().plot(kind='pie', autopct='%1.1f%%', colors=['lightblue', 'lightgreen', 'lightcoral', 'lightsalmon'])
 plt.title('Segregation of Employees Based on Positions')
 plt.ylabel('')
 plt.show()
@@ -28,7 +28,7 @@ plt.show()
 age_bins = [20, 30, 40, 50, 60, 70]  # You can adjust the age ranges as needed
 
 # Create age groups
-data['age_group'] = pd.cut(data['age'], bins=age_bins)
+data['age_group'] = pd.cut(data['Age'], bins=age_bins)
 
 # Plot the predominant age group among employees
 plt.figure(figsize=(10, 6))
@@ -42,17 +42,17 @@ plt.show()
 ###################################################################################
 # Plot the team with the highest salary expenditure
 plt.figure(figsize=(10, 6))
-data.groupby('team')['salary'].sum().plot(kind='bar', color='lightblue')
+data.groupby('Team')['Salary'].sum().plot(kind='bar', color='lightblue')
 plt.title('Team with the Highest Salary Expenditure')
 plt.xlabel('Team')
 plt.ylabel('Total Salary Expenditure')
 plt.xticks(rotation=45)
 plt.grid(axis='y')
 plt.show()
-
+###################################################################################
 # Plot the position with the highest salary expenditure
 plt.figure(figsize=(10, 6))
-data.groupby('position')['salary'].sum().plot(kind='bar', color='lightcoral')
+data.groupby('Position')['Salary'].sum().plot(kind='bar', color='lightcoral')
 plt.title('Position with the Highest Salary Expenditure')
 plt.xlabel('Position')
 plt.ylabel('Total Salary Expenditure')
@@ -62,7 +62,7 @@ plt.show()
 ###################################################################################
 # Plot the correlation between age and salary
 plt.figure(figsize=(10, 6))
-sns.scatterplot(x='age', y='salary', data=data)
+sns.scatterplot(x='Age', y='Salary', data=data)
 plt.title('Correlation between Age and Salary')
 plt.xlabel('Age')
 plt.ylabel('Salary')
